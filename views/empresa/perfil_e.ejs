@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('partials_e/head') %>
+</head>
+<body>
+    <%- include('partials_e/nav_empresa') %>
+
+    <h1>mi perfil</h1>
+    <% if (login) { %>
+    <h1>Bienvenido <strong><%= nombre %></strong> </h1>
+    <a href="logout" class="a-logout">Cerrar Sesion</a>
+    <% } else { %>
+        <h1><strong><%= email %></strong></h1>
+        <a href="login_empresa" class="a-login">Ir al login</a>
+        <% } %>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <% if(typeof alert != "undefined") { %>
+        <script>
+          Swal.fire({
+            title: '<%= altertTitle %>',
+            text: '<%= alertMessage %>',
+            icon: '<%= alertIcon %>',
+            showConfirmButton: <%= showConfirmButton %>,
+            timer: <%= timer %>
+          }).then(()=>{
+            window.location='/ <%= ruta %>'
+          })
+        </script>
+        <% } %>
+</body>
+</html>

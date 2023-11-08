@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('partials_e/head') %>
+</head>
+<body>
+    <%- include('partials_e/nav_empresa') %>
+
+    <h1>mis ofertas</h1>
+    <div class="conteiner">
+      <table>
+        <thead>
+          <tr class="bg-primary text-white">
+            <th scope="col">ID</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Modalidad</th>
+            <th scope="col">Lugar</th>
+            <th scope="col">Carga horaria</th>
+            <th scope="col">Cantida de vacantes</th>
+            <th scope="col">Renta Minima</th>
+            <th scope="col">Renta Maxima</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Fecha de creacion</th>
+          </tr>
+          <% offers.foreach((oferta_trabajo)=>{ %>
+          <tr class="bg-primary text-white">
+            <th><%= oferta_trabajo.id %></th>
+            <th><%= oferta_trabajo.cargo %></th>
+            <th><%= oferta_trabajo.modalidad %></th>
+            <th><%= oferta_trabajo.lugar %></th>
+            <th><%= oferta_trabajo.carga_horaria %></th>
+            <th><%= oferta_trabajo.cantidad_de_vacantes %></th>
+            <th><%= oferta_trabajo.renta_min %></th>
+            <th><%= oferta_trabajo.renta_max %></th>
+            <th><%= oferta_trabajo.estado %></th>
+            <th><%= oferta_trabajo.descripcion %></th>
+            <th><%= oferta_trabajo.estado %></th>
+          </tr>
+          <% }) %>
+        </thead>
+      </table>
+    </div>
+    
+      
+      
+      
+
+
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <% if(typeof alert != "undefined") { %>
+        <script>
+          Swal.fire({
+            title: '<%= altertTitle %>',
+            text: '<%= alertMessage %>',
+            icon: '<%= alertIcon %>',
+            showConfirmButton: <%= showConfirmButton %>,
+            timer: <%= timer %>
+          }).then(()=>{
+            window.location='/ <%= ruta %>'
+          })
+        </script>
+        <% } %>
+</body>
+</html>
